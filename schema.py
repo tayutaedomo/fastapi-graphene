@@ -17,6 +17,7 @@ from models.user import User
 class Query(graphene.ObjectType):
   say_hello = graphene.String(name=graphene.String(default_value='Test riven'))
   list_users = graphene.List(UserGrapheneModel)
+  get_single_user = graphene.Field(UserGrapheneModel, user_id=graphene.NonNull(graphene.Int))
 
   @staticmethod
   def resolve_say_hello(parent, info, name):
@@ -25,6 +26,10 @@ class Query(graphene.ObjectType):
   @staticmethod
   def resolve_list_users(parent, info):
     return User.all()
+
+  @staticmethod
+  def resolve_get_single_user(parent, info, user_id):
+    return User.find_or_fail(user_id)
 
 
 class CreateUser(graphene.Mutation):
