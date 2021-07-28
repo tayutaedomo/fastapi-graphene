@@ -15,4 +15,6 @@ $ pip install -r requirements.txt
 $ cd fastapi-graphene
 $ source venv/bin/activate
 $ uvicorn main:app --reload
+
+$ open "http://localhost:8000/graphql"
 ```
