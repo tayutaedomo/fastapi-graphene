@@ -16,10 +16,15 @@ from models.user import User
 
 class Query(graphene.ObjectType):
   say_hello = graphene.String(name=graphene.String(default_value='Test riven'))
+  list_users = graphene.List(UserGrapheneModel)
 
   @staticmethod
   def resolve_say_hello(parent, info, name):
     return f'Hello {name}'
+
+  @staticmethod
+  def resolve_list_users(parent, info):
+    return User.all()
 
 
 class CreateUser(graphene.Mutation):
