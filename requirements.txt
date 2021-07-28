@@ -1,4 +1,5 @@
-fastapi==0.67.0
+fastapi==0.65.0
 uvicorn==0.14.0
 orator==0.9.9
 graphene==2.1.9
+graphene-pydantic==0.1.0
