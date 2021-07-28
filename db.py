@@ -5,7 +5,9 @@ DATABASES = {
     'sqlite': {
         'driver': 'sqlite',
         'database': 'local.db',
-        'prefix': ''
+        'prefix': '',
+        # 'foreign_keys': True,
+        'log_queries': True
     }
 }
 
